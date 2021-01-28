@@ -367,27 +367,27 @@ public class DownloadActivity extends AppCompatActivity {
 
 - 获取任务信息
 
-字段名 | 说明 | 使用
-:-|:-:|:-:|:-
-ISchedulers.PHOTO_FRAME_DOWNLOAD_INFO_ACTION | 广播接收器Action,用于注册广播  | 
-ISchedulers.DOWNLOAD_STATE | 获取任务状态  | int类型，任务状态见下表
-ISchedulers.DOWNLOAD_TASK_ID | 获取任务id  | int类型
-ISchedulers.DOWNLOAD_COMPLETE_PATH | 获取下载完成的路径  | String类型，只有在ISchedulers.COMPLETE状态下才能取到该值
-ISchedulers.DOWNLOAD_PROGRESS | 获取下载进度  | long类型，0-100，只有在ISchedulers.RUNNING状态下才能取到该值
-ISchedulers.DOWNLOAD_TOTAL_SIZE | 获取下载文件大小  | long类型，只有在ISchedulers.RUNNING状态下才能取到该值
-ISchedulers.DOWNLOAD_ERROR_CODE | 获取错误码  | String类型，只有在ISchedulers.ERROR状态下才能取到该值
-ISchedulers.DOWNLOAD_ERROR_MESSAGE | 获取错误信息  | String类型，只有在ISchedulers.ERROR状态下才能取到该值
+|字段名 | 说明 | 使用 |
+| ---- | ---- | ---- |
+| ISchedulers.PHOTO_FRAME_DOWNLOAD_INFO_ACTION | 广播接收器Action,用于注册广播  | 
+| ISchedulers.DOWNLOAD_STATE | 获取任务状态  | int类型，任务状态见下表 |
+| ISchedulers.DOWNLOAD_TASK_ID | 获取任务id  | int类型 |
+| ISchedulers.DOWNLOAD_COMPLETE_PATH | 获取下载完成的路径  | String类型，只有在ISchedulers.COMPLETE状态下才能取到该值 |
+| ISchedulers.DOWNLOAD_PROGRESS | 获取下载进度  | long类型，0-100，只有在ISchedulers.RUNNING状态下才能取到该值 |
+| ISchedulers.DOWNLOAD_TOTAL_SIZE | 获取下载文件大小  | long类型，只有在ISchedulers.RUNNING状态下才能取到该值 |
+| ISchedulers.DOWNLOAD_ERROR_CODE | 获取错误码  | String类型，只有在ISchedulers.ERROR状态下才能取到该值 |
+| ISchedulers.DOWNLOAD_ERROR_MESSAGE | 获取错误信息  | String类型，只有在ISchedulers.ERROR状态下才能取到该值 |
 
 </br>
 
 - 任务状态
 
-字段名 | 数值 | 说明
-:-|:-:|:-:|:-
-ISchedulers.START | 0 |  任务开始
-ISchedulers.RUNNING | 1  | 任务进行中
-ISchedulers.COMPLETE | 2  | 任务完成
-ISchedulers.ERROR | 3  | 任务失败
+| 字段名 | 数值 | 说明
+| ---- | ---- | ---- |
+| ISchedulers.START | 0 |  任务开始 |
+| ISchedulers.RUNNING | 1  | 任务进行中 |
+| ISchedulers.COMPLETE | 2  | 任务完成 |
+| ISchedulers.ERROR | 3  | 任务失败 |
 
 </br>
 
