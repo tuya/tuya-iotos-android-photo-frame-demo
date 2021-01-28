@@ -146,12 +146,12 @@ TuyaPhotoFrame.newRequest().getCapacity("deviceId", new ITuyaResultCallback<Capa
 ```
 **Capacity字段属性**
 
-字段名 | 类型 | 备注
-:-|:-:|:-:|:-
-totalCapacity | long  | 总容量大小
-usedCapacity | long  | 已使用容量大小
-imageUsedCapacity | long  | 图片使用容量大小
-videoUsedCapacity | long  | 视频使用容量大小
+| 字段名 | 类型 | 备注 |
+| ---- | ---- | ---- |
+| totalCapacity | long  | 总容量大小 ｜
+| usedCapacity | long  | 已使用容量大小 ｜
+| imageUsedCapacity | long  | 图片使用容量大小 ｜
+| videoUsedCapacity | long  | 视频使用容量大小 ｜
 
 </br>
 
@@ -193,35 +193,35 @@ TuyaPhotoFrame.newRequest().getUploadedFileList(20, 0, 400, 400, new ITuyaResult
 ```
 **PageInfo字段属性**
 
-字段名 | 类型 | 备注
-:-|:-:|:-:|:-
-offset | int  | 偏移量
-hasNext | boolean  | 是否有下一页
-totalCount | long  | 总数量
-datas | List<DateInfo>  | 日期列表，见`DateInfo`字段属性
+| 字段名 | 类型 | 备注 |
+| ---- | ---- | ---- |
+| offset | int  | 偏移量 |
+| hasNext | boolean  | 是否有下一页 |
+| totalCount | long  | 总数量 |
+| datas | List<DateInfo>  | 日期列表，见`DateInfo`字段属性 |
 
 </br>
 
 **DateInfo字段属性**
 
-字段名 | 类型 | 备注
-:-|:-:|:-:|:-
-date | long  | 上传的时间戳
-list | List  | 文件列表，见`FileInfo`字段属性
+| 字段名 | 类型 | 备注 |
+| ---- | ---- | ---- |
+| date | long  | 上传的时间戳 |
+| list | List  | 文件列表，见`FileInfo`字段属性 |
 
 </br>
 
 **FileInfo字段属性**
 
-字段名 | 类型 | 备注
-:-|:-:|:-:|:-
-devId | String  | 设备id
-size | long  | 文件大小
-id | long  | 文件id
-type | String  | 文件类型:"image","video"
-title | long  | 文件标题
-duration | long  | 视频时长，当type为“video”时该字段才有效
-fileUrl | long  | 缩略图url
+| 字段名 | 类型 | 备注 |
+| ---- | ---- | ---- |
+| devId | String  | 设备id ｜
+| size | long  | 文件大小 |
+| id | long  | 文件id |
+| type | String  | 文件类型:"image","video" |
+| title | long  | 文件标题 |
+| duration | long  | 视频时长，当type为“video”时该字段才有效 |
+| fileUrl | long  | 缩略图url |
 
 </br>
 
@@ -382,7 +382,7 @@ public class DownloadActivity extends AppCompatActivity {
 
 - 任务状态
 
-| 字段名 | 数值 | 说明
+| 字段名 | 数值 | 说明 |
 | ---- | ---- | ---- |
 | ISchedulers.START | 0 |  任务开始 |
 | ISchedulers.RUNNING | 1  | 任务进行中 |
