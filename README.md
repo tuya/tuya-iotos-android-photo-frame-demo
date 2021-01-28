@@ -145,12 +145,12 @@ TuyaPhotoFrame.newRequest().getCapacity("deviceId", new ITuyaResultCallback<Capa
 ```
 **Capacity Field properties**
 
-Field Name | Type | Remarks
-:-|:-:|:-:|:-
-totalCapacity | long  | Total cloud storage capacity held by users.
-usedCapacity | long  | Cloud storage capacity that users have used.
-imageUsedCapacity | long  | Image of cloud storage capacity that users have used.
-videoUsedCapacity | long  | Video of cloud storage capacity that users have used.
+| Field Name | Type | Remarks |
+| ---- | ---- | ---- |
+| totalCapacity | long  | Total cloud storage capacity held by users |
+| usedCapacity | long  | Cloud storage capacity that users have used |
+| imageUsedCapacity | long  | Image of cloud storage capacity that users have used |
+| videoUsedCapacity | long  | Video of cloud storage capacity that users have used |
 
 </br>
 
@@ -192,35 +192,35 @@ TuyaPhotoFrame.newRequest().getUploadedFileList(20, 0, 400, 400, new ITuyaResult
 ```
 **PageInfo field properties**
 
-Field Name | Type | Remarks
-:-|:-:|:-:|:-
-offset | int  | offset
-hasNext | boolean  | whether there is a next page
-totalCount | long  |  totalCount
-datas | List<DateInfo>  |  List of dates, see the `DateInfo` field properties
+| Field Name | Type | Remarks |
+| ---- | ---- | ---- |
+| offset | int  | offset |
+| hasNext | boolean  | whether there is a next page |
+| totalCount | long  |  totalCount |
+| datas | List<DateInfo>  |  List of dates, see the `DateInfo` field properties |
 
 </br>
 
 **DateInfo field properties**
 
-Field Name | Type | Remarks
-:-|:-:|:-:|:-
-date | long  | Timestamp of the upload
-list | List  | List of files, see the `FileInfo` field properties
+| Field Name | Type | Remarks |
+| ---- | ---- | ---- |
+| date | long  | Timestamp of the upload |
+| list | List  | List of files, see the `FileInfo` field properties |
 
 </br>
 
 **FileInfo field properties**
 
-Field Name | Type | Remarks
-:-|:-:|:-:|:-
-devId | String  | device id
-size | long  | file size
-id | long  | file id
-type | String  |  File type: "image", "video"
-title | long  | title of the file
-duration | long  |  The duration of the video, valid only when type is "video".
-fileUrl | long  | Thumbnail url
+| Field Name | Type | Remarks |
+| ---- | ---- | ---- |
+| devId | String  | device id |
+| size | long  | file size |
+| id | long  | file id |
+| type | String  |  File type: "image", "video" |
+| title | long  | title of the file |
+| duration | long  |  The duration of the video, valid only when type is "video" |
+| fileUrl | long  | Thumbnail url |
 
 </br>
 
