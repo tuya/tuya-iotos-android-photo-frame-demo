@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">TuyaSmart_PhotoFrame</string>
+    <string name="exit_tip">Press again to exit the program</string>
+    <string name="reset_device">Reset Device</string>
+    <string name="uploaded_list">List of uploaded files</string>
+    <string name="downloaded_list">List of downloaded files</string>
+    <string name="ok">OK</string>
+    <string name="cancel">Cancel</string>
+    <string name="reset_tip">Are you sure to reset device</string>
+    <string name="scan_bind_tip">Please use Tuya Smart APP to scan and bind</string>
+    <string name="cloud_storage_capacity">Cloud storage capacity</string>
+    <string name="capacity_total">Total capacity: %s</string>
+    <string name="capacity_used">Used capacity: %s</string>
+    <string name="capacity_image_used">Image usage capacity: %s</string>
+    <string name="capacity_video_used">Video usage capacity: %s</string>
+    <string name="download_tip">Are you sure to download this %s?</string>
+    <string name="text_image">image</string>
+    <string name="text_video">video</string>
+
+    <string-array name="type_array">
+        <item>All</item>
+        <item>Image</item>
+        <item>Video</item>
+    </string-array>
+
+</resources>

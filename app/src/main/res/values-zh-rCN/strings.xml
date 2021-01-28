@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">TuyaSmart_PhotoFrame</string>
+    <string name="exit_tip">再按一次退出程序</string>
+    <string name="reset_device">解绑设备</string>
+    <string name="uploaded_list">上传的文件列表</string>
+    <string name="downloaded_list">下载的文件列表</string>
+    <string name="ok">确定</string>
+    <string name="cancel">取消</string>
+    <string name="reset_tip">确定解除绑定吗?</string>
+    <string name="scan_bind_tip">请使用涂鸦智能APP扫码绑定</string>
+    <string name="cloud_storage_capacity">云存储容量</string>
+    <string name="capacity_total">总容量：%s</string>
+    <string name="capacity_used">已使用容量：%s</string>
+    <string name="capacity_image_used">图片使用容量：%s</string>
+    <string name="capacity_video_used">视频使用容量：%s</string>
+    <string name="download_tip">确定下载该%s?</string>
+    <string name="text_image">图片</string>
+    <string name="text_video">视频</string>
+
+    <string-array name="type_array">
+        <item>全部</item>
+        <item>图片</item>
+        <item>视频</item>
+    </string-array>
+
+</resources>
