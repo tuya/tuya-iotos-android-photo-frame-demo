@@ -1,4 +1,4 @@
-# tuya-iotos-android-photoframe-demo
+# tuya-iotos-android-photo-frame-demo
 
 [中文文档](README-zh.md) | English
 
