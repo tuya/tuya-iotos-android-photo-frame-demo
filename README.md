@@ -366,27 +366,27 @@ public class DownloadActivity extends AppCompatActivity {
 
 - Get download task information
 
-Field Name | Description | Use
-:-|:-:|:-:|:-
-ISchedulers.PHOTO_FRAME_DOWNLOAD_INFO_ACTION | Broadcast receiver Action, used to register a broadcast  | 
-ISchedulers.DOWNLOAD_STATE |  Get task status   |  int type, see the following table for task status
-ISchedulers.DOWNLOAD_TASK_ID | Get task id  |  int type
-ISchedulers.DOWNLOAD_COMPLETE_PATH | Get the path where the download is completed  | String type, only available in ISchedulers.COMPLETE
-ISchedulers.DOWNLOAD_PROGRESS | Get the download progress  |  long type, 0-100, can only be retrieved in ISchedulers.RUNNING
-ISchedulers.DOWNLOAD_TOTAL_SIZE | Get file size  |  long type, only available in ISchedulers.RUNNING
-ISchedulers.DOWNLOAD_ERROR_CODE |  Get error code   | String type, only available in ISchedulers.ERROR
-ISchedulers.DOWNLOAD_ERROR_MESSAGE | Get error message | String type, can only be fetched in ISchedulers.ERROR  | 
+| Field Name | Description | Use |
+| ---- | ---- | ---- |
+| ISchedulers.PHOTO_FRAME_DOWNLOAD_INFO_ACTION | Broadcast receiver Action, used to register a broadcast  | 
+| ISchedulers.DOWNLOAD_STATE |  Get task status   |  int type, see the following table for task status |
+| ISchedulers.DOWNLOAD_TASK_ID | Get task id  |  int type |
+| ISchedulers.DOWNLOAD_COMPLETE_PATH | Get the path where the download is completed  | String type, only available in ISchedulers.COMPLETE |
+| ISchedulers.DOWNLOAD_PROGRESS | Get the download progress  |  long type, 0-100, can only be retrieved in ISchedulers.RUNNING |
+| ISchedulers.DOWNLOAD_TOTAL_SIZE | Get file size  |  long type, only available in ISchedulers.RUNNING |
+| ISchedulers.DOWNLOAD_ERROR_CODE |  Get error code   | String type, only available in ISchedulers.ERROR |
+| ISchedulers.DOWNLOAD_ERROR_MESSAGE | Get error message | String type, can only be fetched in ISchedulers.ERROR  | 
 
 </br>
 
 - Task Status
 
-Field Name | Value | Description
-:-|:-:|:-:|:-
-ISchedulers.START | 0 |  Task Start
-ISchedulers.RUNNING | 1  | Task in progress
-ISchedulers.COMPLETE | 2  | Task completed
-ISchedulers.ERROR | 3  | Task failed
+| Field Name | Value | Description |
+| ---- | ---- | ---- |
+| ISchedulers.START | 0 |  Task Start |
+| ISchedulers.RUNNING | 1  | Task in progress |
+| ISchedulers.COMPLETE | 2  | Task completed |
+| ISchedulers.ERROR | 3  | Task failed |
 
 </br>
 
