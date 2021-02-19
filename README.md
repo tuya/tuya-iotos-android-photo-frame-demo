@@ -1,39 +1,43 @@
-# tuya-iotos-android-photo-frame-demo
+# Tuya Photo Frame Demo for Android
 
 [中文文档](README-zh.md) | English
 
-Tuya Photo Frame SDK Android Demo
+Tuya Photo Frame Demo for Android
 
-## Features Overview
+## Overview
 
-Tuya Photo Frame SDK is developed based on [Tuya Android IoT SDK](https://github.com/tuya/tuya-iotos-android-iot-demo) and has the ability to obtain cloud image and video, cloud image and video download and cloud storage capacity. Minimum support Android API version 19.
+Tuya Photo Frame SDK for Android is developed based on [Tuya Android IoT SDK](https://github.com/tuya/tuya-iotos-android-iot-demo) and has the ability to obtain and download cloud image and video and get cloud storage capacity. Support Android 4.4 (API level 19) or above.
 
-## Preparation for Integration
+## Preparation
 
-### 1. Register Tuya Developer Account
+1. Register a Tuya account
 
-Go to the [ Tuya Smart Development Platform](https://iot.tuya.com/) to register a developer account。
+    Go to the [Tuya IoT Platform](https://iot.tuya.com/) to register an account.
 
-### 2. Create Cloud Frame Category products to get pid,uuid and key.
+2. Create a cloud frame product to get PID, UUID, and key.
 
-#### 2.1 Click Create Product-Entertainment-Cloud Frame, complete the product information, and then click the Create Product button.
-![guide1](./screenshot/guide_1.png)
-#### 2.2 Enter the third step of Hardware Development, choose the docking plan and corresponding SDK, then get 10 free Licenses.
-![guide2](./screenshot/guide_2.png)
-#### 2.3 Choose 'Delivery from' License List , and then click Submit the order button.
-![guide3](./screenshot/guide_3.png)
+    - Click Create > Entertainment > Cloud Frame, complete the product information, and then click Create Product.
+
+    ![guide1](./screenshot/guide_1.png)
+
+    - Click Hardware Development tab, select the connection mode and SDK, then get 10 free licenses.
+
+    ![guide2](./screenshot/guide_2.png)
+
+    - Select License List for Delivery from, and then click Submit the order.
+
+    ![guide3](./screenshot/guide_3.png)
 
 ## Demo App
 
-Demo App mainly demonstrates the API functions of Tuya Photo Frame SDK, which generally includes device activation,
-File list display, file download, cloud capacity acquisition and device unbinding and other functions.
+Demo app demonstrates the API functions of Tuya Photo Frame SDK, which includes device activation, file list display, file download, cloud capacity acquisition, device unbinding, and more.
 
 
-Use Android Stuido open demo project, Set pid, uuid and key in the `AndroidManifest.xml` file.
+Open the demo project in Android Studio and set PID, UUID and key in the `AndroidManifest.xml` file.
 
 ![config file](./screenshot/manifest.png)
 
-Then run Demo App to see the following effects
+Then run the demo app. The successful operation result is shown as follows.
 
 <img src="./screenshot/demo_1_en.png" width = "24%" height = "20%"/> 
 <img src="./screenshot/demo_2_en.png" width = "24%" height = "20%"/> 
@@ -42,13 +46,13 @@ Then run Demo App to see the following effects
 
 ## Integrate SDK
 
-### 1. Create Project
+### 1. Create project
 
 Build your project in the Android Studio.
 
-### 2. Configure the build.gradle
+### 2. Configure build.gradle
 
-Add the following codes to the build.gradle file in the project root directory.
+Add the following code to the `build.gradle` file in the project root directory.
 
 ```groovy
 allprojects {
@@ -59,7 +63,7 @@ allprojects {
     }
 }
 ```
-Add the following codes to the build.gradle file in app module.
+Add the following codes to the `build.gradle` file in the app folder.
 
 ```groovy
 android {
@@ -69,20 +73,20 @@ android {
         }
     }
     packagingOptions {
-        pickFirst 'lib/armeabi-v7a/libc++_shared.so' // multiple aar exist for this so, need to pick the first one
+        pickFirst 'lib/armeabi-v7a/libc++_shared.so' // Multiple .aar files exist for this .so file. Select the first one
     }
 }
 dependencies {
     implementation 'com.tuya.smart:photo-frame:1.0.0'
 
-    // tuya iot_sdk denpendencies
+    // Tuya IoT SDK dependencies
     implementation 'com.tuya.smart:tuyasmart-iot_sdk:1.1.0' 
     implementation 'com.tencent.mars:mars-xlog:1.2.3'
 }
 ```
-> Tips： </br> Since the Tuya Photo Frame SDK is based on the Tuya Android IoT SDK capabilities, you need to include the Tuya Android IoT SDK dependencies. For more information on the features of the Tuya Android IoT SDK, go to [GitHub](https://github.com/tuya/tuya-iotos-android-iot-demo) to check it out.
+> Tips: </br> Since the Tuya Photo Frame SDK is based on the Tuya Android IoT SDK capabilities, you need to include the Tuya Android IoT SDK dependencies. For more information about the Tuya Android IoT SDK, go to [GitHub](https://github.com/tuya/tuya-iotos-android-iot-demo) and check it out.
 
-### 3. Permission configuration
+### 3. Configure permission 
 
 ```xml
 <uses-permission android:name="android.permission.INTERNET" />
@@ -96,13 +100,13 @@ dependencies {
 -keep class com.tuya.smartai.iot_sdk.** {*;}
 -keep class com.tencent.mars.** {*;}
 ```
-### 5. Initialize the SDK
+### 5. Initialize SDK
 
-Initialize the configuration in the Application.
+Initialize the configuration in `Application`.
 
 ```
  TuyaPhotoFrame.getInstance()
-                .setIoTManager(IoTSDKManager ioTSDKManager) //Must be set! It is recommended to maintain a single instance of IoTSDKManager 
+                .setIoTManager(IoTSDKManager ioTSDKManager) // It must be set. It is recommended to maintain a single instance of IoTSDKManager
                 .init(this);
 ```
 
@@ -112,7 +116,7 @@ Initialize the configuration in the Application.
 
 </br>
 
-**Get the cloud storage capacity using the following api**
+**Get the cloud storage capacity using the following API**
 ```java
 TuyaPhotoFrame.newRequest().getCapacity(String deviceId , ITuyaResultCallback<Capacity> callback);
 ```
@@ -121,8 +125,8 @@ TuyaPhotoFrame.newRequest().getCapacity(String deviceId , ITuyaResultCallback<Ca
 
 | Parameter    | Description      |
 | ---- | ---- |
-| deviceId | Device id, obtained by getDeviceId() function of IoTSDKManager |
-| callback   | callback |
+| deviceId | Device ID, obtained by `getDeviceId()` function of `IoTSDKManager` |
+| callback   | Callback |
 
 </br>
 
@@ -143,14 +147,14 @@ TuyaPhotoFrame.newRequest().getCapacity("deviceId", new ITuyaResultCallback<Capa
             }
         });
 ```
-**Capacity Field properties**
+**Capacity field property**
 
 | Field Name | Type | Remarks |
 | ---- | ---- | ---- |
-| totalCapacity | long  | Total cloud storage capacity held by users |
-| usedCapacity | long  | Cloud storage capacity that users have used |
-| imageUsedCapacity | long  | Image of cloud storage capacity that users have used |
-| videoUsedCapacity | long  | Video of cloud storage capacity that users have used |
+| totalCapacity | long  | Total cloud storage |
+| usedCapacity | long  | Cloud storage used |
+| imageUsedCapacity | long  | Cloud storage used for storing images |
+| videoUsedCapacity | long  | Cloud storage used for storing videos |
 
 </br>
 
@@ -158,19 +162,19 @@ TuyaPhotoFrame.newRequest().getCapacity("deviceId", new ITuyaResultCallback<Capa
 
 </br>
 
-**Get a list of types of files using the following api**
+**Get a list of types of files using the following API**
 ```java
 TuyaPhotoFrame.newRequest().getUploadedFileList(int limit , int offset , int width , int height , ITuyaResultCallback<PageInfo> callback);
 ```
 
 **Parameter Description**
 
-| Parameter    | description          |
+| Parameter    | Description          |
 | ---- | ---- |
 | limit | Maximum number of items at a time |
-| offset   | offset |
-| width   | width of the thumbnail |
-| height   |  height of thumbnail |
+| offset   | Offset |
+| width   |  Thumbnail width |
+| height   | Thumbnail height |
 
 </br>
 
@@ -190,37 +194,37 @@ TuyaPhotoFrame.newRequest().getUploadedFileList(20, 0, 400, 400, new ITuyaResult
             }
         });
 ```
-**PageInfo field properties**
+**PageInfo field property**
 
 | Field Name | Type | Remarks |
 | ---- | ---- | ---- |
-| offset | int  | offset |
-| hasNext | boolean  | whether there is a next page |
-| totalCount | long  |  totalCount |
-| datas | List<DateInfo>  |  List of dates, see the `DateInfo` field properties |
+| offset | int  | Offset |
+| hasNext | boolean  | Whether there is a next page |
+| totalCount | long  |  Total count |
+| datas | List<DateInfo>  |  List of dates, see the `DateInfo` field property |
 
 </br>
 
-**DateInfo field properties**
+**DateInfo field property**
 
 | Field Name | Type | Remarks |
 | ---- | ---- | ---- |
 | date | long  | Timestamp of the upload |
-| list | List  | List of files, see the `FileInfo` field properties |
+| list | List  | List of files, see the `FileInfo` field property |
 
 </br>
 
-**FileInfo field properties**
+**FileInfo field property**
 
 | Field Name | Type | Remarks |
 | ---- | ---- | ---- |
-| devId | String  | device id |
-| size | long  | file size |
-| id | long  | file id |
+| devId | String  | Device ID |
+| size | long  | File size |
+| id | long  | File ID |
 | type | String  |  File type: "image", "video" |
-| title | long  | title of the file |
+| title | long  | Title of the file |
 | duration | long  |  The duration of the video, valid only when type is "video" |
-| fileUrl | long  | Thumbnail url |
+| fileUrl | long  | Thumbnail URL |
 
 </br>
 
@@ -238,9 +242,9 @@ TuyaPhotoFrame.newRequest().getUploadedFileListWithType(int limit , int offset ,
 | Parameter    | description          |
 | ---- | ---- |
 | limit | Maximum number of items at a time |
-| offset   | offset |
-| width   | width of the thumbnail |
-| height   |  height of thumbnail |
+| offset   | Offset |
+| width   | Width of the thumbnail |
+| height   |  Height of the thumbnail |
 | type   | File type: "image" or "video"  |
 
 </br>
@@ -277,11 +281,11 @@ TuyaPhotoFrame.newRequest().getUploadedFileListWithType(20, 0, 400, 400, "video"
         });
 ```
 
-### Download the file
+### Download files
 
 </br>
 
-**Use the following api to download files**
+**Use the following API to download files**
 
 ```java
 TuyaPhotoFrame.newRequest().getDownload(long id, String downloadPath, String type);
@@ -291,9 +295,9 @@ TuyaPhotoFrame.newRequest().getDownload(long id, String downloadPath, String typ
 
 | Parameter | Description |
 | ---- | ---- |
-| id | File id |
-| downloadPath   | The download path. If it is not an application-specific path, you need to apply for read/write permission by yourself, you can refer to [Data and file storage overview](https://developer.android.google.cn/training/data-storage#scoped-storage)|
-| type   |  File types："image","video" |
+| id | File ID |
+| downloadPath   | The download path. If it is not an app-specific path, you need to apply for read/write permission by yourself. You can refer to [Data and file storage overview](https://developer.android.google.cn/training/data-storage#scoped-storage)|
+| type   |  File types: "image", "video" |
 
 </br>
 
@@ -325,7 +329,7 @@ public class DownloadActivity extends AppCompatActivity {
                     //Download completed
                     case ISchedulers.COMPLETE:
                         String filePath = intent.getStringExtra(ISchedulers.DOWNLOAD_COMPLETE_PATH);
-                        // File path after download is complete
+                        // File path after download is completed
                         Log.d("DownloadActivity", "filePath: " + filePath);
                         break;
                     // Download failed
@@ -356,7 +360,7 @@ public class DownloadActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        // If you register a broadcast, be sure to remember to unregisterRecevier
+        // If you have registered a broadcast, make sure to unregister Receiver
         if (mReceiver != null) {
             unregisterReceiver(mReceiver);
         }
@@ -370,12 +374,12 @@ public class DownloadActivity extends AppCompatActivity {
 | ---- | ---- | ---- |
 | ISchedulers.PHOTO_FRAME_DOWNLOAD_INFO_ACTION | Broadcast receiver Action, used to register a broadcast  | 
 | ISchedulers.DOWNLOAD_STATE |  Get task status   |  int type, see the following table for task status |
-| ISchedulers.DOWNLOAD_TASK_ID | Get task id  |  int type |
-| ISchedulers.DOWNLOAD_COMPLETE_PATH | Get the path where the download is completed  | String type, only available in ISchedulers.COMPLETE |
-| ISchedulers.DOWNLOAD_PROGRESS | Get the download progress  |  long type, 0-100, can only be retrieved in ISchedulers.RUNNING |
-| ISchedulers.DOWNLOAD_TOTAL_SIZE | Get file size  |  long type, only available in ISchedulers.RUNNING |
-| ISchedulers.DOWNLOAD_ERROR_CODE |  Get error code   | String type, only available in ISchedulers.ERROR |
-| ISchedulers.DOWNLOAD_ERROR_MESSAGE | Get error message | String type, can only be fetched in ISchedulers.ERROR  | 
+| ISchedulers.DOWNLOAD_TASK_ID | Get task ID  |  int type |
+| ISchedulers.DOWNLOAD_COMPLETE_PATH | Get the path where the download is completed  | String type, only be retrieved in ISchedulers.COMPLETE |
+| ISchedulers.DOWNLOAD_PROGRESS | Get the download progress  |  long type, 0-100, only be retrieved in ISchedulers.RUNNING |
+| ISchedulers.DOWNLOAD_TOTAL_SIZE | Get file size  |  long type, only be retrieved in ISchedulers.RUNNING |
+| ISchedulers.DOWNLOAD_ERROR_CODE |  Get error code   | String type, only be retrieved in ISchedulers.ERROR |
+| ISchedulers.DOWNLOAD_ERROR_MESSAGE | Get error message | String type, only be retrieved in ISchedulers.ERROR  | 
 
 </br>
 
@@ -383,7 +387,7 @@ public class DownloadActivity extends AppCompatActivity {
 
 | Field Name | Value | Description |
 | ---- | ---- | ---- |
-| ISchedulers.START | 0 |  Task Start |
+| ISchedulers.START | 0 |  Task start |
 | ISchedulers.RUNNING | 1  | Task in progress |
 | ISchedulers.COMPLETE | 2  | Task completed |
 | ISchedulers.ERROR | 3  | Task failed |
@@ -404,7 +408,7 @@ TuyaPhotoFrame.newRequest().cancelDownload(long id);
 
 | Parameter | Description |
 | ---- | ---- |
-| id | File id |
+| id | File ID |
 
 
 </br>
@@ -412,32 +416,32 @@ TuyaPhotoFrame.newRequest().cancelDownload(long id);
 
 ## Error Code
 
-| error code | Description |
+| Error code | Description |
 | ---- | ---- |
-| -6656 | disconnected with router |
-| -6657 | device not bind |
-| -4354 | fill url full error |
-| -4362 | receiver err |
-| -4366 | api token expire |
-| -4372 | api version wrong |
-| -4373 | device removed |
-| -4374 | device already bind |
-| -4375 | remote api run unKnow failed |
-| -4376 | format string failed |
-| -4378 | service verify failed |
-|-2049 | http url param out limit |
-|-2050 | http os error |
-|-2051 | http prepare request error |
-|-2052 | http send request error |
-|-2053 | http read error |
-|-2054 | http add head error |
-|-2055 | http get response error |
-|-2060 | create http url head error |
-|-2061 | https handle fail |
-|-2062 | https response unValid |
-|-2063 | no support range |
-| 3001 | json parse error |
-| 3100 | other error |
+| -6656 | Disconnected with router |
+| -6657 | Device is not bound |
+| -4354 | Full URL construction error |
+| -4362 | Receiver error |
+| -4366 | API token expired |
+| -4372 | API version wrong |
+| -4373 | Device is removed |
+| -4374 | Device is already bound |
+| -4375 | Unknown API error |
+| -4376 | Formatting string failed |
+| -4378 | Service verification failed |
+|-2049 | HTTP URL length exceeds limit |
+|-2050 | System error |
+|-2051 | HTTP prepare request error |
+|-2052 | HTTP send request error |
+|-2053 | HTTP read error |
+|-2054 | HTTP head adding error |
+|-2055 | HTTP get response error |
+|-2060 | HTTP URL head creation error |
+|-2061 | HTTPS handle error |
+|-2062 | HTTPS response invalid |
+|-2063 | Not support range |
+| 3001 | JSON parse error |
+| 3100 | Other error |
 
 ## ChangeLog
 [CHANGELOG.md](CHANGELOG.md)
