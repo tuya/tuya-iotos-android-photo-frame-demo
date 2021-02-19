@@ -452,7 +452,7 @@ You can get support from Tuya with the following methods:
 
 Tuya Smart Help Center: https://support.tuya.com/en/help
 
-Technical Support Council: https://service.console.tuya.com
+Technical Support: https://service.console.tuya.com
 
 ## License
 
