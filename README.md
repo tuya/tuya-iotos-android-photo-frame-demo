@@ -27,7 +27,19 @@ Tuya Photo Frame SDK for Android is developed based on [Tuya Android IoT SDK](ht
     - Select License List for Delivery from, and then click Submit the order.
 
     ![guide3](./screenshot/guide_3.png)
+    
+3. Firmware Configuration
 
+    The current SDK has mandatory requirements for firmware, and custom firmware must be added to the platform in order to activate it. The specific process is as follows.
+
+    - In Hardware Development > Select Firmware , and click Add Custom Firmware.
+    
+    ![ota1](./screenshot/ota_1_en.png)
+    
+    - Fill in the firmware information with the following reference. Where the firmware type must be selected as module firmware. Other fill in according to the actual situation.
+    
+    ![ota1](./screenshot/ota_2_en.png)
+    
 ## Demo App
 
 Demo app demonstrates the API functions of Tuya Photo Frame SDK, which includes device activation, file list display, file download, cloud capacity acquisition, device unbinding, and more.
