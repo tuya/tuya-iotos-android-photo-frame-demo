@@ -3,6 +3,7 @@
     package="com.tuya.smart.tuyasmart_photoframe">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA"/>
 
     <application
         android:name=".MyApplication"
@@ -15,23 +16,28 @@
 
         <meta-data
             android:name="PID"
-            android:value="{YOUR PID}" />
+            android:value="" />
         <meta-data
             android:name="UUID"
-            android:value="{YOUR UUID}" />
+            android:value="" />
         <meta-data
             android:name="AUTH_KEY"
-            android:value="{YOUR AUTH KEY}" />
+            android:value="" />
 
-        <activity
-            android:name=".activity.MainActivity"
-            android:configChanges="orientation|screenSize">
+        <activity android:name=".activity.ConfigurationActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name="com.king.zxing.CaptureActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/CaptureTheme" />
+        <activity
+            android:name=".activity.MainActivity"
+            android:configChanges="orientation|screenSize" />
         <activity android:name=".activity.UploadedListActivity" />
         <activity android:name=".activity.CapacityActivity" />
         <activity android:name=".activity.DownloadedListActivity" />

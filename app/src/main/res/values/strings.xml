@@ -23,4 +23,10 @@
         <item>Video</item>
     </string-array>
 
+    <string name="text_pid">PID: </string>
+    <string name="text_uuid">UUID: </string>
+    <string name="text_authKey">AUTHKEY: </string>
+
+    <string name="btn_scan">Scan code import</string>
+    <string name="btn_bind">Bind Device</string>
 </resources>

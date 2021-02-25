@@ -24,4 +24,10 @@
         <item>视频</item>
     </string-array>
 
+    <string name="text_pid">PID: </string>
+    <string name="text_uuid">UUID: </string>
+    <string name="text_authKey">AUTHKEY: </string>
+
+    <string name="btn_scan">扫码导入</string>
+    <string name="btn_bind">绑定设备</string>
 </resources>

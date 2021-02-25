@@ -3,8 +3,9 @@ package com.tuya.smart.tuyasmart_photoframe.activity;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.DownloadManager;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.os.Process;
@@ -34,20 +35,34 @@ public class MainActivity extends AppCompatActivity implements IoTSDKManager.IoT
 
     private MainModel mModel;
 
+    private String pid = "";
+    private String uuid = "";
+    private String authKey = "";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        initArgs();
         initView();
         mModel = new MainModel(this);
-        mModel.initIoTSDK(this);
+        mModel.initIoTSDK(this, pid, uuid, authKey);
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
         mModel.onDestroy();
+    }
+
+    private void initArgs() {
+        Intent intent = getIntent();
+        if (intent != null) {
+            pid = getIntent().getStringExtra("pid");
+            uuid = getIntent().getStringExtra("uuid");
+            authKey = getIntent().getStringExtra("authKey");
+        }
     }
 
     private void initView() {
@@ -74,14 +89,22 @@ public class MainActivity extends AppCompatActivity implements IoTSDKManager.IoT
         findViewById(R.id.btn_downloaded_list).setOnClickListener(v -> startActivity(new Intent(this, DownloadedListActivity.class)));
     }
 
-
     private void restartApp() {
+        saveStatus(false);
         Intent intent = new Intent();
-        intent.setClass(this, MainActivity.class);
+        intent.setClass(this, ConfigurationActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
         Process.killProcess(Process.myPid());
         System.exit(0);
+    }
+
+    public static void goToActivity(Context context, String pid, String uuid, String authKey) {
+        Intent intent = new Intent(context, MainActivity.class);
+        intent.putExtra("pid", pid);
+        intent.putExtra("uuid", uuid);
+        intent.putExtra("authKey", authKey);
+        context.startActivity(intent);
     }
 
     @Override
@@ -124,6 +147,7 @@ public class MainActivity extends AppCompatActivity implements IoTSDKManager.IoT
             progressBar.setVisibility(View.GONE);
             menuLayout.setVisibility(View.VISIBLE);
             qrCodeLayout.setVisibility(View.GONE);
+            saveStatus(true);
         });
     }
 
@@ -153,5 +177,19 @@ public class MainActivity extends AppCompatActivity implements IoTSDKManager.IoT
             return true;
         }
         return super.onKeyDown(keyCode, event);
+    }
+
+    private void saveStatus(boolean flag) {
+        SharedPreferences sharedPreferences = getSharedPreferences("TuyaPhotoFrame", MODE_PRIVATE);
+        SharedPreferences.Editor edit = sharedPreferences.edit();
+        if (flag) {
+            edit.putBoolean("active", true);
+            edit.putString("pid", pid);
+            edit.putString("uuid", uuid);
+            edit.putString("authKey", authKey);
+        } else {
+            edit.clear();
+        }
+        edit.commit();
     }
 }

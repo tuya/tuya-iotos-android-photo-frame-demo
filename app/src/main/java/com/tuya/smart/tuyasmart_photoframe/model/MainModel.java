@@ -22,11 +22,7 @@ public class MainModel {
         this.mContext = context;
     }
 
-    public void initIoTSDK(IoTSDKManager.IoTCallback callback) {
-        String pid = getMetaDataValue("PID");
-        String uuid = getMetaDataValue("UUID");
-        String authKey = getMetaDataValue("AUTH_KEY");
-
+    public void initIoTSDK(IoTSDKManager.IoTCallback callback, String pid, String uuid, String authKey) {
         if (pid.isEmpty() || uuid.isEmpty() || authKey.isEmpty()) {
             Toast.makeText(mContext, "pid、uuid、authKey is Empty", Toast.LENGTH_SHORT).show();
             return;
@@ -42,17 +38,6 @@ public class MainModel {
 
     public void onDestroy() {
         IoTSDKManagerWrapper.getInstance(mContext).onDestroy();
-    }
-
-    private String getMetaDataValue(String key) {
-        String value = "";
-        try {
-            ApplicationInfo applicationInfo = mContext.getPackageManager().getApplicationInfo(mContext.getPackageName(), PackageManager.GET_META_DATA);
-            value = applicationInfo.metaData.getString(key);
-        } catch (PackageManager.NameNotFoundException e) {
-            e.printStackTrace();
-        }
-        return value;
     }
 
 }
