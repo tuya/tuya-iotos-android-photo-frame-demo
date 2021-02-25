@@ -28,12 +28,34 @@
 Demo App 主要对于云相框SDK的API功能进行演示，大体包括设备激活，
 文件列表展示，文件下载，云端容量获取和设备解绑等功能。
 
+[安装包体验](./apk/tuya_photo_frame.apk)
 
-用Android Studio将Demo工程打开后，将你事先申请好的pid，uuid和key填写到`AndroidManifest.xml`对应的标签中
+> 注意：开始前，需要将激活传入的PID、UUID、AUTHKEY配置
+
+### 三种配置方式：
+
+1. 运行demo，在配置首页中编辑
+
+ <img src="./screenshot/config_1.png" width = "24%" height = "20%"/> 
+
+2. 生成配置二维码，运行demo点击“扫描导入”进行扫描</br>
+
+ <img src="./screenshot/config_2.png" width = "24%" height = "20%"/> 
+
+ 二维码生成方式：将下面的配置json生成二维码，[生成工具](https://cli.im/text)
+```json
+{
+	"PID": "你的PID",
+	"UUID": "你的UUID",
+	"AUTHKEY": "你的AUTHKEY"
+}
+```
+
+3. 用Android Studio将Demo工程打开后，将你事先申请好的pid，uuid和key填写到`AndroidManifest.xml`对应的标签中，然后运行Demo
 
 ![配置文件](./screenshot/manifest.png)
 
-然后运行Demo可以看到以下效果
+点击“绑定设备”可以看到以下效果
 
 <img src="./screenshot/demo_1.png" width = "24%" height = "20%"/> 
 <img src="./screenshot/demo_2.png" width = "24%" height = "20%"/> 
@@ -369,7 +391,7 @@ public class DownloadActivity extends AppCompatActivity {
 
 |字段名 | 说明 | 使用 |
 | ---- | ---- | ---- |
-| ISchedulers.PHOTO_FRAME_DOWNLOAD_INFO_ACTION | 广播接收器Action,用于注册广播  | 
+| ISchedulers.PHOTO_FRAME_DOWNLOAD_INFO_ACTION | 广播接收器Action,用于注册广播  |
 | ISchedulers.DOWNLOAD_STATE | 获取任务状态  | int类型，任务状态见下表 |
 | ISchedulers.DOWNLOAD_TASK_ID | 获取任务id  | int类型 |
 | ISchedulers.DOWNLOAD_COMPLETE_PATH | 获取下载完成的路径  | String类型，只有在ISchedulers.COMPLETE状态下才能取到该值 |

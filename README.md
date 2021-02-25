@@ -32,12 +32,32 @@ Tuya Photo Frame SDK for Android is developed based on [Tuya Android IoT SDK](ht
 
 Demo app demonstrates the API functions of Tuya Photo Frame SDK, which includes device activation, file list display, file download, cloud capacity acquisition, device unbinding, and more.
 
+[install package experience](./apk/tuya_photo_frame.apk).
 
-Open the demo project in Android Studio and set PID, UUID and key in the `AndroidManifest.xml` file.
+> Note: Before starting, you need to configure the `PID`, `UUID` and `AUTHKEY`
 
-![config file](./screenshot/manifest.png)
+1. Run the demo app, then edit in the configuration page.
 
-Then run the demo app. The successful operation result is shown as follows.
+ <img src="./screenshot/config_1_en.png" width = "24%" height = "20%"/>   
+
+2. Generate the configuration QR code, scan the code when you run the demo app and click the "SCAN CODE IMPORT" button.
+
+ <img src="./screenshot/config_2_en.png" width = "24%" height = "20%"/>     
+
+   QR code generation method: Use a [QR generation tool](https://cli.im/text) and the following configuration json to generate a QR code.
+```json
+{
+    "PID": "Your PID",
+    "UUID": "Your UUID",
+    "AUTHKEY": "your AUTHKEY"
+}
+```
+
+3. Open the demo project in Android Studio and set PID, UUID and key in the `AndroidManifest.xml` file, then run the demo app.
+
+ ![config file](./screenshot/manifest.png) 
+
+Click the "BIND DEVICE" button , the successful operation result is shown as follows.
 
 <img src="./screenshot/demo_1_en.png" width = "24%" height = "20%"/> 
 <img src="./screenshot/demo_2_en.png" width = "24%" height = "20%"/> 
@@ -372,14 +392,14 @@ public class DownloadActivity extends AppCompatActivity {
 
 | Field Name | Description | Use |
 | ---- | ---- | ---- |
-| ISchedulers.PHOTO_FRAME_DOWNLOAD_INFO_ACTION | Broadcast receiver Action, used to register a broadcast  | 
+| ISchedulers.PHOTO_FRAME_DOWNLOAD_INFO_ACTION | Broadcast receiver Action, used to register a broadcast  |
 | ISchedulers.DOWNLOAD_STATE |  Get task status   |  int type, see the following table for task status |
 | ISchedulers.DOWNLOAD_TASK_ID | Get task ID  |  int type |
 | ISchedulers.DOWNLOAD_COMPLETE_PATH | Get the path where the download is completed  | String type, only be retrieved in ISchedulers.COMPLETE |
 | ISchedulers.DOWNLOAD_PROGRESS | Get the download progress  |  long type, 0-100, only be retrieved in ISchedulers.RUNNING |
 | ISchedulers.DOWNLOAD_TOTAL_SIZE | Get file size  |  long type, only be retrieved in ISchedulers.RUNNING |
 | ISchedulers.DOWNLOAD_ERROR_CODE |  Get error code   | String type, only be retrieved in ISchedulers.ERROR |
-| ISchedulers.DOWNLOAD_ERROR_MESSAGE | Get error message | String type, only be retrieved in ISchedulers.ERROR  | 
+| ISchedulers.DOWNLOAD_ERROR_MESSAGE | Get error message | String type, only be retrieved in ISchedulers.ERROR  |
 
 </br>
 
