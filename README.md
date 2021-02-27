@@ -10,7 +10,7 @@ Tuya Photo Frame SDK for Android is developed based on [Tuya Android IoT SDK](ht
 
 ## Preparation
 
-1. Register a Tuya account
+1. Register a Tuya account.
 
     Go to the [Tuya IoT Platform](https://iot.tuya.com/) to register an account.
 
@@ -32,11 +32,11 @@ Tuya Photo Frame SDK for Android is developed based on [Tuya Android IoT SDK](ht
 
     The current SDK has mandatory requirements for firmware, and custom firmware must be added to the platform in order to activate it. The specific process is as follows.
 
-    - In Hardware Development > Select Firmware , and click Add Custom Firmware.
+    - In Hardware Development > Select Firmware, and click Add Custom Firmware.
     
     ![ota1](./screenshot/ota_1_en.png)
     
-    - Fill in the firmware information with the following reference. Where the firmware type must be selected as module firmware. Other fill in according to the actual situation.
+    - Complete firmware information with the following reference. You must select **Module Firmware** as the firmware category. Complete other fields according to the actual situation.
     
     ![ota1](./screenshot/ota_2_en.png)
     
@@ -46,17 +46,17 @@ Demo app demonstrates the API functions of Tuya Photo Frame SDK, which includes 
 
 [install package experience](./apk/tuya_photo_frame.apk).
 
-> Note: Before starting, you need to configure the `PID`, `UUID` and `AUTHKEY`
+> Note: Before starting, you need to configure the `PID`, `UUID` and `AUTHKEY`.
 
-1. Run the demo app, then edit in the configuration page.
+1. Run the demo app, and then edit in the configuration page.
 
  <img src="./screenshot/config_1_en.png" width = "24%" height = "20%"/>   
 
-2. Generate the configuration QR code, scan the code when you run the demo app and click the "SCAN CODE IMPORT" button.
+2. Generate the configuration QR code, scan the code when you run the demo app, and click the **SCAN CODE IMPORT** button.
 
  <img src="./screenshot/config_2_en.png" width = "24%" height = "20%"/>     
 
-   QR code generation method: Use a [QR generation tool](https://cli.im/text) and the following configuration json to generate a QR code.
+   QR code generation method: Use a [QR generation tool](https://cli.im/text) and the following configuration JSON to generate a QR code.
 ```json
 {
     "PID": "Your PID",
@@ -65,11 +65,11 @@ Demo app demonstrates the API functions of Tuya Photo Frame SDK, which includes 
 }
 ```
 
-3. Open the demo project in Android Studio and set PID, UUID and key in the `AndroidManifest.xml` file, then run the demo app.
+3. Open the demo project in Android Studio and set PID, UUID and AUTHKEY in the `AndroidManifest.xml` file, then run the demo app.
 
  ![config file](./screenshot/manifest.png) 
 
-Click the "BIND DEVICE" button , the successful operation result is shown as follows.
+Click the **BIND DEVICE** button, and the successful operation result is shown as follows.
 
 <img src="./screenshot/demo_1_en.png" width = "24%" height = "20%"/> 
 <img src="./screenshot/demo_2_en.png" width = "24%" height = "20%"/> 
@@ -82,7 +82,7 @@ Click the "BIND DEVICE" button , the successful operation result is shown as fol
 
 Build your project in the Android Studio.
 
-### 2. Configure build.gradle
+### 2. Configure `build.gradle`
 
 Add the following code to the `build.gradle` file in the project root directory.
 
@@ -149,6 +149,7 @@ Initialize the configuration in `Application`.
 </br>
 
 **Get the cloud storage capacity using the following API**
+
 ```java
 TuyaPhotoFrame.newRequest().getCapacity(String deviceId , ITuyaResultCallback<Capacity> callback);
 ```
@@ -195,6 +196,7 @@ TuyaPhotoFrame.newRequest().getCapacity("deviceId", new ITuyaResultCallback<Capa
 </br>
 
 **Get a list of types of files using the following API**
+
 ```java
 TuyaPhotoFrame.newRequest().getUploadedFileList(int limit , int offset , int width , int height , ITuyaResultCallback<PageInfo> callback);
 ```
@@ -265,6 +267,7 @@ TuyaPhotoFrame.newRequest().getUploadedFileList(20, 0, 400, 400, new ITuyaResult
 </br>
 
 **Get a list of files of the specified type using the following api**
+
 ```java
 TuyaPhotoFrame.newRequest().getUploadedFileListWithType(int limit , int offset , int width , int height , String type , ITuyaResultCallback<PageInfo> callback);
 ```
